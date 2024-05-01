@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import cookieParser from "cookie-parser"
 import authRoutes from "./routes/auth.routes.js"
 import messageRoutes from "./routes/message.routes.js"
+import userRoutes from "./routes/user.routes.js"
 import connectTOMongoDB from "./db/connetToMongoDB.js"
 
 
@@ -15,6 +16,7 @@ app.use(cookieParser())
 app.use(express.json()) // // Middleware to parse incoming JSON requests (req.body)
 app.use("/api/auth", authRoutes)
 app.use("/api/messages", messageRoutes)
+app.use("/api/users",userRoutes)
 
 
 
