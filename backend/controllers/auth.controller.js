@@ -69,7 +69,7 @@ export const login = async (req, res) => {
     try {
         const { username, password } = req.body
         const user = await User.findOne({ username })
-        const isPasswordCorrect = bycrypt.compare(password, user?.password || "")
+        const isPasswordCorrect = await bycrypt.compare(password, user?.password || "")
 
         if (!user || !isPasswordCorrect) {
             return res
